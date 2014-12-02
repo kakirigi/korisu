@@ -1,0 +1,29 @@
+{
+    "name": "kakirigi/korisu",
+    "description": "A small symfony/console application for database and folder backups.",
+    "keywords": [
+        "database",
+        "folder",
+        "tar",
+        "backup"
+    ],
+    "license": "MIT",
+    "require": {
+        "symfony/console": "~2.6",
+        "illuminate/config": "~4.2",
+        "illuminate/filesystem": "~4.2",
+        "nesbot/carbon": "~1.13"
+    },
+    "autoload": {
+        "files": [
+            "bootstrap/helpers.php"
+        ],
+        "psr-4": {
+            "Korisu\\": "src"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable"
+}
