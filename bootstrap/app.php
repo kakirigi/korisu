@@ -9,14 +9,9 @@
 |
 */
 
-$environment = 'local';
+define('APP_ENV', 'development', true);
 
-$fileloader = new Illuminate\Config\FileLoader(
-  new Illuminate\Filesystem\Filesystem,
-  __DIR__ . '/../config'
-);
-
-$config = new Illuminate\Config\Repository($fileloader, $environment);
+$config = get_configuration();
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +22,7 @@ $config = new Illuminate\Config\Repository($fileloader, $environment);
 |
 */
 
-$app = new \Korisu\Foundation\Application($config);
+$app = new \Korisu\Foundation\Application();
 
 /*
 |--------------------------------------------------------------------------

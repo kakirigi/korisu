@@ -10,13 +10,13 @@ use Symfony\Component\Console\Application as ConsoleApplication;
 class Application extends ConsoleApplication
 {
 
-    public $config;
+    const VERSION = '1.2.2';
 
-    public function __construct(Config $config)
+    protected $name = 'Korisu (Little Squirrel)';
+
+    public function __construct()
     {
-        parent::__construct('Korisu (Little Squirrel)', '1.2');
-
-        $this->config = $config;
+        parent::__construct($this->name, $this::VERSION);
 
         $this->registerCommands();
     }
@@ -24,9 +24,14 @@ class Application extends ConsoleApplication
     public function registerCommands()
     {
         $this->add(new ReserveAllCommand());
-        $this->add(new ReserveFoldersCommand($this->config));
-        $this->add(new ReserveDatabasesCommand($this->config));
-        $this->add(new ReserveDepleteCommand($this->config));
+        $this->add(new ReserveFoldersCommand());
+        $this->add(new ReserveDatabasesCommand());
+        $this->add(new ReserveDepleteCommand());
+    }
+
+    public function applicationName()
+    {
+        return $this->name;
     }
 
 } 

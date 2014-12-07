@@ -1,42 +1,11 @@
 <?php namespace Korisu\Reserve;
 
-use Illuminate\Filesystem\Filesystem;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Illuminate\Config\Repository as Config;
 
-class ReserveDepleteCommand extends Command
+class ReserveDepleteCommand extends ReserveCommand
 {
-
-    /**
-     * Get an instance of application configuration.
-     *
-     * @var \Illuminate\Config\Repository
-     */
-    protected $config;
-
-    /**
-     * Get an instance of Carbon.
-     *
-     * @var \Illuminate\Filesystem\Filesystem
-     */
-    protected $files;
-
-    /**
-     * Get a new instance of the ReserveDepleteCommand.
-     *
-     * @param \Illuminate\Config\Repository $config
-     */
-    function __construct(Config $config)
-    {
-        parent::__construct();
-
-        $this->config = $config;
-
-        $this->files  = new Filesystem();
-    }
 
     /**
      * Configures the reserve:deplete command.
